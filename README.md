@@ -1,16 +1,137 @@
-# React + Vite
+# 🛒 Projeto E-commerce Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação frontend de e-commerce desenvolvida com React e Vite, com foco em componentização, rotas dinâmicas, responsividade e gerenciamento de estado da aplicação.
 
-Currently, two official plugins are available:
+O sistema simula funcionalidades comuns de um e-commerce moderno, como catálogo de produtos, página de detalhes, carrinho de compras e integração com uma API fake utilizando JSON Server.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+# 🚀 Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Frontend
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- JavaScript
+- React Router DOM
+- Tailwind CSS
+- Shadcn/ui
+- Lucide React
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Ferramentas e Qualidade de Código
+
+- ESLint
+- Prettier
+- Git e GitHub
+
+## Backend Fake
+
+- JSON Server
+
+---
+
+# ✨ Funcionalidades
+
+- Listagem de produtos
+- Página de detalhes do produto
+- Carrinho de compras
+- Controle de quantidade de produtos
+- Rotas dinâmicas
+- Layout responsivo
+- Integração com API fake
+- Componentização reutilizável
+- Paginação de produtos
+
+---
+
+# 📂 Estrutura do Projeto
+
+```bash
+src/
+ ├── components/
+ ├── pages/
+ ├── routes/
+ ├── services/
+ ├── hooks/
+ ├── assets/
+ └── styles/
+```
+
+---
+
+# ⚙️ Como Rodar o Projeto
+
+## 1. Clone o repositório
+
+```bash
+git clone https://github.com/kauangits/project-ecommerce.git
+```
+
+---
+
+## 2. Entre na pasta do projeto
+
+```bash
+cd vite-project
+```
+
+---
+
+## 3. Instale as dependências
+
+```bash
+npm install
+```
+
+---
+
+## 4. Rode o frontend
+
+```bash
+npm run dev
+```
+
+O projeto estará disponível em:
+
+```bash
+http://localhost:5173
+```
+
+---
+
+# 🗄️ Rodando o JSON Server
+
+Caso o projeto utilize um arquivo `db.json`, execute:
+
+```bash
+npx run server
+```
+
+A API fake ficará disponível em:
+
+```bash
+http://localhost:3000
+```
+
+---
+
+# 📚 Objetivos do Projeto
+
+Este projeto foi desenvolvido com objetivo de praticar:
+
+- Desenvolvimento frontend moderno
+- Criação de interfaces responsivas
+- Consumo de APIs
+- Organização de componentes
+- Gerenciamento de rotas
+- Boas práticas com React
+- Estruturação de projetos com Vite
+- Versionamento com Git e GitHub
+
+---
+
+# 👨‍💻 Autor
+
+Carlos Kauan
+
+Estudante de Ciência da Computação na UFCA.
