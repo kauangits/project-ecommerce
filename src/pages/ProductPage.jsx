@@ -4,6 +4,7 @@ import Text from "@/components/shared/Text";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import BASE_URL from "@/services/api";
+import { FaStar } from "react-icons/fa";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -56,12 +57,39 @@ export default function ProductPage() {
           </Text>
 
           <div className="flex flex-row gap-3 w-full">
-            <div className="px-4 py-2 gap-4 flex flex-row items-center justify-around rounded-full border border-1 border-black">
+            <div className="px-4 py-2 gap-4 flex flex-row items-center justify-around rounded-full border  border-black">
               <Button variant="variant">-</Button>
               <Text className="small">1</Text>
               <Button variant="variant">+</Button>
             </div>
             <Button className="px-4 py-2 h-full">adicionar</Button>
+          </div>
+          {/* comments */}
+          <div className="p-6 rounded-md bg-white">
+            <Heading level="h2" classname="py-3">
+              Avaliações
+            </Heading>
+            <div className="border rounded-md border-gray-300">
+              {product.reviews?.map((review, index) => (
+                <div
+                  key={index}
+                  className="flex flex-row justify-between  p-5 border-b py-2 border-gray-300"
+                >
+                  <div className="py-4 ">
+                    <Heading level="h3">{review.name}</Heading>
+                    <Text className="mt-3">{review.comment}</Text>
+                  </div>
+                  <div className="flex flex-row py-4">
+                    {Array.from({ length: 5 }, (_, i) => (
+                      <FaStar
+                        key={i}
+                        className={` w-6 h-6 ${i < Math.round(review.rating) ? " fill-yellow-300 text-yellow-300" : "text-gray-300"}`}
+                      ></FaStar>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
