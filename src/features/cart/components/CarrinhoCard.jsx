@@ -10,14 +10,19 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useCart } from "@/features/cart/CartContext";
+import Text from "@/components/shared/Text";
 export default function CarrinhoCard({ item }) {
   const { removeCart, increment, decrement } = useCart();
-
+  const valProd = (item.price * item.quantity).toFixed(2);
   return (
     <div>
       <Card className="w-full">
-        <div className="flex flex-row justify-between items-center p-3">
-          <img src={item.image} alt="imagem aleatoria" className="w-24 h-24" />
+        <div className="flex flex-row justify-around items-center p-3">
+          <img
+            src={item.images?.[0]}
+            alt="imagem aleatoria"
+            className="w-24 h-24 border border-gray-300 rounded-md"
+          />
           <div className="flex flex-col gap-3">
             <p>{item.name}</p>
             <p>{item.category}</p>
@@ -46,8 +51,9 @@ export default function CarrinhoCard({ item }) {
               </AlertDialogContent>
             </AlertDialog>
           </div>
-          <div>
-            <p>{item.price}</p>
+          <div className="py-3">
+            <Text variant="bold">individual: {item.price}</Text>
+            <Text>produtos: {valProd}</Text>
           </div>
         </div>
       </Card>
