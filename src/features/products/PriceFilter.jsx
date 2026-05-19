@@ -7,6 +7,7 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Field, FieldGroup } from "@/components/ui/field";
 import { useQueryParams } from "@/pages/UseQueryparams";
+import Text from "@/components/shared/Text";
 export default function PriceFilter() {
   const { getParam, setParams } = useQueryParams();
   const priceRange = getParam("price") || "";
@@ -31,7 +32,9 @@ export default function PriceFilter() {
     <div>
       <Accordion type="multiple" collapsible>
         <AccordionItem value="price">
-          <AccordionTrigger>Faixa de preço</AccordionTrigger>
+          <AccordionTrigger className="hover:no-underline">
+            <Text>Faixa de preço</Text>
+          </AccordionTrigger>
 
           <AccordionContent>
             <RadioGroup value={priceRange} onValueChange={handleChange}>

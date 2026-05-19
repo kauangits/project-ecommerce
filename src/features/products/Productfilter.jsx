@@ -7,6 +7,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { useQueryParams } from "@/pages/UseQueryparams";
+import Text from "@/components/shared/Text";
 
 export default function ProductFilter({ categories }) {
   console.log("vasco", categories);
@@ -27,11 +28,11 @@ export default function ProductFilter({ categories }) {
   }
   return (
     <div>
-      <Accordion type="multiple" className="w-full">
+      <Accordion type="multiple" className="w-ful ">
         {/* Categoria */}
         <AccordionItem value="categoria">
-          <AccordionTrigger className="text-sm font-semibold">
-            Categoria
+          <AccordionTrigger className="no-underline hover:no-underline">
+            <Text>categoria</Text>
           </AccordionTrigger>
 
           <AccordionContent>
@@ -44,7 +45,9 @@ export default function ProductFilter({ categories }) {
                     onCheckedChange={(checked) => handleToogle(cat, checked)}
                   />
 
-                  <label htmlFor={cat}>{cat}</label>
+                  <label htmlFor={cat}>
+                    <Text variant="muted">{cat}</Text>
+                  </label>
                 </Field>
               ))}
             </FieldGroup>

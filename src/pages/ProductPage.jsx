@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import BASE_URL from "@/services/api";
 import { FaStar } from "react-icons/fa";
-
+import { Price } from "@/utils/Price";
 export default function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
@@ -45,16 +45,8 @@ export default function ProductPage() {
             <Text variant="small">vendido por alguma coisa</Text>
           </div>
 
-          <Heading level="h3">{product.price}</Heading>
-          <Text>
-            descricao longa do produto Lorem ipsum dolor sit amet consectetur,
-            adipisicing elit. Tenetur tempora, numquam ducimus ipsum possimus
-            qui, voluptatibus recusandae sit, expedita unde provident nihil!
-            Aliquid magni saepe consectetur explicabo molestiae vel eius! Lorem
-            ipsum dolor sit, amet consectetur adipisicing elit. Eum facere,
-            nulla officiis in quos tenetur vel adipisci ducimus aperiam est,
-            cum, ratione dolorum. Nesciunt iusto non veniam unde illum deserunt.
-          </Text>
+          <Price preco={product.price}></Price>
+          <Text>{product.longDescription}</Text>
 
           <div className="flex flex-row gap-3 w-full">
             <div className="px-4 py-2 gap-4 flex flex-row items-center justify-around rounded-full border  border-black">

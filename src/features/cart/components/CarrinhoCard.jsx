@@ -11,6 +11,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useCart } from "@/features/cart/CartContext";
 import Text from "@/components/shared/Text";
+import Heading from "@/components/shared/Heading";
+import { Price } from "@/utils/Price";
 export default function CarrinhoCard({ item }) {
   const { removeCart, increment, decrement } = useCart();
   const valProd = (item.price * item.quantity).toFixed(2);
@@ -24,8 +26,8 @@ export default function CarrinhoCard({ item }) {
             className="w-24 h-24 border border-gray-300 rounded-md"
           />
           <div className="flex flex-col gap-3">
-            <p>{item.name}</p>
-            <p>{item.category}</p>
+            <Heading level="h3">{item.name}</Heading>
+            <Text>{item.category}</Text>
           </div>
           <div className="flex flex-row items-center gap-2">
             <Button onClick={() => decrement(item.id)}>-</Button>
@@ -39,7 +41,10 @@ export default function CarrinhoCard({ item }) {
 
               <AlertDialogContent>
                 <AlertDialogHeader>
-                  Tem certeza que deseja remover este produto?
+                  <Text variant="bold">
+                    {" "}
+                    Tem certeza que deseja remover este produto?
+                  </Text>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
                   <AlertDialogCancel>Cancelar</AlertDialogCancel>
@@ -52,8 +57,8 @@ export default function CarrinhoCard({ item }) {
             </AlertDialog>
           </div>
           <div className="py-3">
-            <Text variant="bold">individual: {item.price}</Text>
-            <Text>produtos: {valProd}</Text>
+            <Price preco={item.price}></Price>
+            <Price preco={valProd}></Price>
           </div>
         </div>
       </Card>

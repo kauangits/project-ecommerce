@@ -1,17 +1,11 @@
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Learning from "../../../public/Learning.svg";
 import { useCart } from "@/features/cart/CartContext";
 import { Link } from "react-router-dom";
-
+import Heading from "@/components/shared/Heading";
+import Text from "@/components/shared/Text";
+import { Price } from "@/utils/Price";
 export default function ProductCard({ product }) {
   const { addCart } = useCart();
 
@@ -26,14 +20,13 @@ export default function ProductCard({ product }) {
         </div>
 
         <CardContent className="p-4">
-          <h2 className="font-semibold text-lg line-clamp-1">{product.name}</h2>
-          <p className="text-sm text-muted-foreground line-clamp-2">
-            {product.description}
-          </p>
+          <Heading level="h3" className="line-clamp-1">
+            {product.name}
+          </Heading>
+          <Text className="line-clamp-2"> {product.description}</Text>
 
           <div className="mt-3 flex items-center justify-between">
-            <span className="text-xl font-bold">{product.price}</span>
-
+            <Price preco={product.price}></Price>
             <Button
               variant="outline"
               onClick={() => {
@@ -41,10 +34,12 @@ export default function ProductCard({ product }) {
                 addCart(product);
               }}
             >
-              Comprar
+              <Text variant="small">comprar</Text>
             </Button>
             <Link to={`/products/${product.id}`}>
-              <Button variant="outline">detalhes</Button>
+              <Button variant="outline">
+                <Text variant="small">detalhes</Text>
+              </Button>
             </Link>
           </div>
         </CardContent>

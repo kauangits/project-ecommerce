@@ -11,11 +11,14 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom";
+import Heading from "@/components/shared/Heading";
+import Text from "@/components/shared/Text";
+import { Price } from "@/utils/Price";
 export default function Carrinho() {
   const { cart, total, totalItems } = useCart();
   console.log("CARRINHO", cart);
   return (
-    <>
+    <div className="mx-auto w-full max-w-7xl">
       <div className="bg-[#F2F2F2] w-full p-3">
         <Breadcrumb>
           <BreadcrumbList>
@@ -53,24 +56,24 @@ export default function Carrinho() {
               className={`sticky top-6 w-80 h-fit ${cart.length === 0 && "invisible"}`}
             >
               <CardHeader>
-                <h2 className=" text-lg font-semibold">Resumo do pedido</h2>
+                <Heading level="h2">Resumo do pedido</Heading>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex justify-between text-sm">
-                  <span>Subtotal</span>
-                  <span>R$ {total.toFixed(2)}</span>
+                  <Text>Subtotal</Text>
+                  <Price>{total}</Price>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span>Frete</span>
-                  <span>R$ 10,00</span>
+                  <Text>Frete</Text>
+                  <Text>R$ 10,00</Text>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span>total de itens</span>
-                  <span>{totalItems}</span>
+                  <Text>total de itens</Text>
+                  <Text>{totalItems}</Text>
                 </div>
                 <div className="border-t pt-3 flex justify-between font-bold">
-                  <span>Total</span>
-                  <span>R$ {(total + 10).toFixed(2)}</span>
+                  <Text variant="bold">total</Text>
+                  <Price>{total + 10}</Price>
                 </div>
                 <Button className="w-full mt-4">Finalizar compra</Button>
               </CardContent>
@@ -78,6 +81,6 @@ export default function Carrinho() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
