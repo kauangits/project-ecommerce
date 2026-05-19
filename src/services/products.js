@@ -7,14 +7,8 @@ export async function getProducts({
   selectCategories,
   priceRange,
 }) {
-  console.log("penultimo", Array.isArray(selectCategories));
+  console.log("categorias", selectCategories);
   const [field, order] = sort.split("-");
-  // let categoriesQuery = "";
-  // if (selectCategories.length > 0) {
-  //   selectCategories.forEach((c) => {
-  //     categoriesQuery += `category=${c}`;
-  //   });
-  // }
   const categoriesQuery =
     selectCategories.length > 0
       ? selectCategories.map((c) => `category=${c}`).join("&")
@@ -44,7 +38,7 @@ export async function getProducts({
 
   const total = res.headers.get("X-Total-Count");
   const data = await res.json();
-  console.log(data);
+  console.log("valores retornados do meu getProducts", data);
   return {
     data,
     total: Number(total),
