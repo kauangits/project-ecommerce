@@ -4,10 +4,10 @@ export default function Text({
   className = "",
 }) {
   const variants = {
-    muted: "text-sm text-[#F3F3F3]",
-    small: "text-xs text-[#F3F3F3]",
-    default: "text-base text-slate-700",
-    bold: "font-semibold text-slate-900",
+    muted: "text-sm font-inter text-zinc-500",
+    small: "text-xs font-inter text-zinc-400",
+    default: "text-base font-inter text-zinc-700",
+    bold: "font-semibold font-inter text-zinc-900",
   };
 
   return <p className={`${variants[variant]} ${className}`}>{children}</p>;
